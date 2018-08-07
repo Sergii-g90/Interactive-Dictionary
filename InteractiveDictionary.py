@@ -14,5 +14,18 @@ def search_word (dictionary):
     else:
         print("There is no such word")
 
+#Main menu
+def main_menu():
+    print("Fill in 'search' to search for a word definition \nFill in 'exit' to exit the progrma")
+    command = input("Please fill in a command: ")
+    if command == 'search':
+        search_word(data)
+        print("\n\n")
+    elif command == 'exit':
+        return exit()
+    else:
+        print("\n\nIt's not correct command, try again.\n\n")
+        main_menu()
+
 while True:
-    search_word(data)
+    main_menu()
