@@ -12,6 +12,7 @@ def search_word (dictionary):
         #returns description of the found word
         print("Meaning of the word: ", dictionary[word])
     else:
+        #if word is not found we are checking for matching words, in case there was mistake in the word
         list_of_matches = difflib.get_close_matches(word, dictionary.keys())
         if list_of_matches != [] :
             print("Meaning of the word", list_of_matches[0], dictionary[list_of_matches[0]])
