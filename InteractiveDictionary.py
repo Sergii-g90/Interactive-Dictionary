@@ -1,4 +1,4 @@
-import json
+import json, difflib
 
 #loading data from json file to 'data' variable (dictionary type)
 data = json.load(open("Data/data.json"))
@@ -12,7 +12,12 @@ def search_word (dictionary):
         #returns description of the found word
         print("Meaning of the word: ", dictionary[word])
     else:
-        print("There is no such word")
+        list_of_matches = difflib.get_close_matches(word, dictionary.keys())
+        if list_of_matches != [] :
+            print("Meaning of the word", list_of_matches[0], dictionary[list_of_matches[0]])
+        else:
+            print(list_of_matches)
+            print("There is no such word")
 
 #Main menu
 def main_menu():
